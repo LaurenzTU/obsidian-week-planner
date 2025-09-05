@@ -8,9 +8,15 @@ jest.mock('obsidian', () => ({
 }));
 
 test('getWeekFileName', () => {
+	const settings = {
+		workingDays: 'Mon,Tue,Wed,Thu,Fri',
+		baseDir: 'Week Planner',
+		daysDir: 'Days',
+		weeksDir: 'Weeks'
+	};
 	const sun = Moment("2022-10-23", DATE_FORMAT)
-	expect(getWeekFileName(sun)).toBe('Week Planner/Weeks/Calweek-2022-42.md');
+	expect(getWeekFileName(settings, sun)).toBe('Week Planner/Weeks/Calweek-2022-42.md');
 
 	const mon = Moment("2022-10-24", DATE_FORMAT)
-	expect(getWeekFileName(mon)).toBe('Week Planner/Weeks/Calweek-2022-43.md');
+	expect(getWeekFileName(settings, mon)).toBe('Week Planner/Weeks/Calweek-2022-43.md');
 });

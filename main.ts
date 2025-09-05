@@ -213,7 +213,7 @@ export default class WeekPlannerPlugin extends Plugin {
 		this.settings = Object.assign({}, DEFAULT_SETTINGS, await this.loadData());
 	}
 
-	aasync saveSettings() {
+	async saveSettings() {
 		await this.saveData(this.settings);
 	}
 }
